@@ -1,0 +1,20 @@
+#Calculador de día del año
+#Este programa nos indica qué día de la semana cae el día que le indquemos del
+#año (basado en los 364 días y no fecha del mes)
+
+print("Posición del día")
+print("""Días correspondientes de la semana:
+Lunes: 0
+Martes: 1
+Miércoles: 2
+Jueves: 3
+Viernes: 4
+Sábado: 5
+Domingo: 6""")
+dia = int(input("Por favor indique el día: "))
+
+calculo_de_dia = dia % 7
+
+print("El dia {} cae un {}".format(dia, calculo_de_dia))
+
+
