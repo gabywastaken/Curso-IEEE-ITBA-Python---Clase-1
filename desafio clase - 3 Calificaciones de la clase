@@ -17,6 +17,7 @@
 
 print("-------Asignador de notas--------")
 nota = int(input("Ingresa una nota: "))
+percentage = nota / 10
 
 if nota >= 90 and nota < 100:
     print("Calificación: A")
@@ -30,3 +31,10 @@ elif nota >= 0 and nota < 59:
     print("Calificación: F")
 else:
     print("No es una calificación válida")
+
+if percentage >= 4 and percentage < 100:
+    print("aprobado")
+elif percentage >= 0 and percentage < 3:
+    print("Reprobado")
+else:
+    print(" ")
