@@ -1,0 +1,25 @@
+#Mini-desafío funciones
+#Escribir una función que chequee los siguientes usuarios y contraseñas:
+
+#Usuario: Juan - Contraseña: 12345_
+#Usuario: Pablo - Contraseña: xDcFvGbHn
+#La función debe recibir como parámetros el usuario y la contraseña, y
+#debe devolver el valor True o False.
+
+print("------Verificador de contraseña--------")
+
+user = input("Usuario: ")
+passwrod = input("Contraseña: ")
+
+
+def data(x,y):
+    if x == "Juan" and y == "12345_":
+        return True
+    elif x == "Pablo" and y == "xDcFvGbHn":
+        return True
+    else:
+        return False
+        
+
+result = data(user,passwrod) 
+print(result)
