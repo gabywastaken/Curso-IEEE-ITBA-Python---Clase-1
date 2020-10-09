@@ -1,0 +1,40 @@
+#Desafío final clase - 1
+
+#La conjetura del Dr. Lothar
+#Escriba un programa que reciba un numero del usuario y repita el siguiente
+#proceso usando un while:
+
+#Si el numero es par, se debe dividir por  2 .
+#Si el numero es impar, se debe multiplicar por  3  y sumar  1 .
+#Este proceso se repite hasta llegar al numero  1  y luego muestra en
+#pantalla la cantidad de pasos que tardó en llegar.
+
+#Ejemplo para  n=6 :
+
+#6,3,10,5,16,8,4,2,1 
+
+#Resultado = 8
+
+print("-----Conjetura del Dr. Lothar Collatz-----")
+
+input_user = int(input("Ingresa número: "))
+
+while input_user >= 1:
+
+    for i in range(1)
+    
+    
+    testt = input_user % 2
+    
+    if testt == 0:
+        division = input_user / 2
+        print(division)
+        input_user = division
+        
+    elif testt != 0:
+        multi = ((input_user * 3) + 1)
+        print(multi)
+        input_user = multi
+    else:
+        if input_user == 1:
+            break
