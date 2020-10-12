@@ -1,0 +1,30 @@
+#Cálculo de promedio
+#Cálcular la nota de un alumno es una tarea cotidiana de un profesor.
+#Esta tarea suele realizarse a mano o en excel muchas veces.
+#En esta ocasión la haremos en python.
+
+#Escribir una función que calcule el promedio de 3 notas y entrege ese valor
+#usando return.
+#Reescribir la función anterior modificandola para asignar una importancia al
+#primer examen de 20%, al segundo de 50% y al tercero de 30%.
+#Llamar a cada función anterior 3 veces con distintas notas y verificar,
+#mediante la instrucción if, si el alumno aprobó en cada caso (suponga que 4
+#es la nota de aprobación).
+
+
+def notas_promedio(x1,x2,x3):
+    promedio = (nota1 + nota2 + nota3) / 3
+    return promedio
+
+def notas_ponderado(n1,n2,n3):
+    ponderado = n1 * 0.2 + n2 * 0.5 + n3 * 0.3
+    ponderado1 = ponderado / 10
+    if ponderado1 >= 4:
+        print("aprobado")
+    else:
+        print("desaprobado")
+    return ponderado1
+
+print(notas_ponderado(1,2,3))
+print(notas_ponderado(30,30,90))
+print(notas_ponderado(90,100,89))
