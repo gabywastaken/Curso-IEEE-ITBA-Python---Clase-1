@@ -1,0 +1,29 @@
+#Mini-desafío: floats
+#Crear:
+
+#Una función que convierta grados Celsius a grados Farenheit
+#(https://es.wikipedia.org/wiki/Grado_Fahrenheit)
+#Una función que convierta grados Celsius a grados Kelvin
+#(https://es.wikipedia.org/wiki/Kelvin)
+#El usuario debe ingresar una temperatura en grados Celsius y el programa
+#debe mostrar las conversiones a Farenheit y Kelvin utilizando las funciones.
+#Si la temperatura ingresada es inferior al cero absoluto, el programa debe
+#mostrar un mensaje de advertencia.
+
+#Pueden leer aqui sobre como hacer las conversiones.
+
+dato_temperatura = int(input("> "))
+if dato_temperatura < -273.15:
+    print("Temperatura no válida!")
+
+else:
+    def celsius_f(x):
+        dato_c_f = (dato_temperatura * 9/5) + 32
+        return dato_c_f
+
+    def celsius_k(x):
+        dato_c_k = dato_temperatura + 273.15
+        return dato_c_k
+
+print(celsius_f(dato_temperatura))
+print(celsius_k(dato_temperatura))
