@@ -1,0 +1,56 @@
+#Mini-desafío: listas
+#1- Crear una lista con los números pares menores a 50.
+
+list_pares = [ x*2 for x in range(25) ]
+print(list_pares)
+
+#2- Crear una lista con el nombre de los días de la semana. Realizar un programa
+#al cual se ingresa el día del año mediante un número de 0 a 364, que determine
+#a qué día de la semana corresponde mediante un número de 0 (Lunes) a 6 (Domingo
+#) y luego muestre en pantalla el elemento correspondiente de la lista, o sea,
+#el día de la semana en forma de texto (suponemos que el día 0 del año es Lunes)
+
+#Ejemplos:
+
+#calcularDia(1) => 'Martes' (Ya que el día 0 es Lunes)
+
+#calcularDia(10) => 'Jueves' (Ya que el día 7 también es Lunes)
+
+semana = ["lunes","martes","miércoler","jueves","viernes","sábado","domingo"]
+
+dia = int(input("Ingresa día: "))
+
+calculo_de_dia = dia % 7
+
+if calculo_de_dia == 0:
+    print(semana[0])
+elif calculo_de_dia == 1:
+    print(semana[1])
+elif calculo_de_dia == 2:
+    print(semana[2])
+elif calculo_de_dia == 3:
+    print(semana[3])
+elif calculo_de_dia == 4:
+    print(semana[4])
+elif calculo_de_dia == 5:
+    print(semana[5])
+else:
+    print(semana[6])
+
+#3- Realizar un programa que ordena nombres alfabeticamente. Primero debe pedir
+#al usuario que ingrese el número de nombres que serán ingresados,
+#luego debe pedir al usuario que ingrese un nombre y repetir ese pedido la
+#cantidad de veces indicada. Los nombres se deben ir agregando a una lista.
+#Por último, ordenar la lista alfabéticamente y mostrar en pantalla de a uno
+#por vez los nombres ordenados (usando un for).
+
+nombres = []
+numero = int(input("Ingresa cantidad de nombres: "))
+control = 0
+while control < numero:
+    control +=1
+    nombre1 = input("ingresa nombre")
+    nombres.append(nombre1)
+    sorted_list = sorted(nombres)
+for item in sorted_list:
+    print(item)
