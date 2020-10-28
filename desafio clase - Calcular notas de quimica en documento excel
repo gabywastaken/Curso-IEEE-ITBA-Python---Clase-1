@@ -1,0 +1,7 @@
+#Calcular el promedio de las notas de química de todos los alumnos en el archivo Datos.xlsx.
+
+
+import pandas
+df = pandas.read_excel("Datos.xlsx")
+columna = "Quimica"
+print(df[columna].sum())
