@@ -1,0 +1,6 @@
+#Leer el archivo Tabla1.xlsx que contiene los puntos de un campeonato y determinar qué equipo es el campeón (1ro) y perdedor (último). 
+#El archivo tiene dos columnas, Equipo y Puntos
+
+import pandas
+df = pandas.read_excel("Tabla1.xlsx")
+print("Campeón: ", df["Equipo"][1]," - ", df["Puntos"][1], "\nPerdedor: ", df["Equipo"][3]," - ", df["Puntos"][3])
