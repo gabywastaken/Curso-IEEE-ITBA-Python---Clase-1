@@ -1,0 +1,45 @@
+Escribir una funcion que reciba como parámetros: una variable de tipo DataFrame (la tabla de alumnos) 
+y el índice de un alumno. Luego debe devolver con return el promedio de sus notas en las diferentes materia
+
+
+
+import pandas as pd
+df = pandas.read_excel("Datos.xlsx")
+print(df)
+
+#def superbf():
+#  df = pandas.read_excel("Datos.xlsx")
+#  indice = 0
+#  alumno = datos.loc[indice] 
+#  lenght = int(len(alumno))
+#  prom = ((alumno["Quimica"] + alumno["Matematica"] + alumno["Fisica"]) / length)
+#  return  prom
+
+#superbf()
+
+#indice = 0
+#alumno = datos.loc[indice] 
+#print(alumno)
+
+def prom_materia():
+    materia = "Quimica"
+    archivo = pd.read_excel("Datos.xlsx")
+    archivo = archivo.to_dict("list")
+    promedio = round(sum(archivo[materia]) / len(archivo[materia]),2)
+    print(promedio)
+prom_materia()
+
+--------------------------------
+
+DEFINITIVE
+
+
+def superbf():
+  indice = 0
+  alumno = datos.loc[indice] 
+  archivo = pd.read_excel("Datos.xlsx")
+  archivo = archivo.to_dict("list")
+  prom = ((alumno["Quimica"] + alumno["Matematica"] + alumno["Fisica"]) / len(archivo))
+  return  prom
+
+superbf()
