@@ -1,0 +1,32 @@
+Encontrar la cantidad de ocurrencias de la palabras "Trump" y "the" en el texto de la noticia.
+
+
+
+
+file = open("noticia.txt") # Guardamos el contenido del archivo en una variable
+
+palabras = []
+no_deseado = ['\ufeff', '—', '\n', '’s', ',', '.']
+
+contenido = file.readlines() # Obtenemos una lista de renglones
+
+for line in contenido: 
+  for caracter  in no_deseado:
+    line = line.replace(caracter,'')
+
+  palabras_linea = line.split(' ')
+  for palabra in palabras_linea: # por cada "string" separado por espacios
+      if palabra != '':
+        palabras.append(palabra) 
+
+ocurrencia = {}
+
+for palabra in palabras:
+  if palabra == 'Trump' or palabra == 'the':
+    if palabra not in ocurrencia:
+      ocurrencia[palabra] = 1
+    else:
+      ocurrencia[palabra] += 1
+
+print(palabras) # Mostramos renglón a renglón
+print(ocurrencia)
