@@ -1,0 +1,33 @@
+##Paréntesis balanceados
+##En este desafío deben programar un linter que verifique la correcta utilización de los paréntesis en un texto.
+##
+##La entrada del programa será un texto, que puede o no contener paréntesis (), corchetes [] y llaves {}, además de cualquier otra letra o símbolo. Su tarea es determinar que el texto sea válido, lo cual en este caso quiere decir que la utilización de paréntesis, corchetes y llaves es correcta, cada símbolo de apertura se corresponde con uno de cierre. Imprimir True o False si el texto es válido o no.
+##
+##Tips:
+##
+##Investigar el comportamiento de Pilas LIFO ya que son de extrema utilidad en este problema. Pueden utilizar listas de Python con los comandos append y pop para que se comporte como una pila LIFO.
+##Sugerimos usar una estructura de datos para determinar las parejas de símbolos, el código será más sencillo y además será mucho más fácil agregar otras parejas de símbolos en el futuro. Algunas opciones posibles que se nos ocurrieron, aunque no las únicas, son:
+##  openers = ['(', '{', '[']
+##
+##  closers = [')', '}', ']']
+##  brackets = {'(':')', '[':']', '{':'}'
+
+
+
+texto = input("")
+test_text = list(texto)
+symbols = ["(", ")", "{", "}", "[", "]"]
+
+counter = 0
+
+for signos in test_text:
+    if signos in symbols:
+        counter += 1
+
+def prueba01(counter):
+    if counter % 2 == 0:
+        return True
+    else:
+        return False
+
+print(prueba01(counter))
