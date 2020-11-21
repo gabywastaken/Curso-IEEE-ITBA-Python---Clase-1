@@ -1,0 +1,88 @@
+
+Análisis de una señal de un electrocardiograma para conseguir información de un paciente.
+
+
+
+Un electrocardiograma es una representación gráfica de los pulsos cardíacos. Se tiene un archivo electrocardiograma.xlsx con la información del resultado de un electrocardiograma en dos columnas, una tiene los valores de las mediciones en 
+eV
+ (columna señal), y la segunda los instantes (medido en segundos transcurridos) en que se toma cada medición (columna tiempo) que fueron tomadas con una frecuencia de 360 Hz.
+Funcionalidad mínima (requisito):
+Se debe poder calcular los picos de la señal y marcarlos en un gráfico de la misma.
+Sugerencia: Usar la función scipy.signal.find_peaks de la librería scipy (en la documentación hay ejemplos muy útiles).
+Se debe poder calcular la frecuencia cardíaca del paciente medida en latidos por minuto a partir de los picos más altos de cada pulsación.
+Determinar si el electrocardiograma fue tomado mientras el paciente dormía, estaba en reposo o hacia actividad física. Tomar como referencia los criterios de la frecuencia cardíaca y pedir como entrada del programa cualquier información adicional necesaria (como la edad o el sexo del paciente).
+Se deben poder almacenar los resultados en un archivo de texto .txt
+Gráfico a entregar (requisito):
+Graficar la señal del electrocardiograma en función del tiempo señalando el pico más alto de cada pulsación. Indicar la frecuencia cardíaca dentro del gráfico (puede ser mediante labels, título, descripción, etc).
+
+
+#---------- Proyecto integrador ------------
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import find_peaks
+
+##_________________ datos de entrada ____________
+
+sexo = input("Sexo del paciente: ")
+
+edad = str(input("Edad del paciente: "))
+
+##_________________ Graficación _________________
+
+df = pd.read_excel(r'electrocardiograma.xlsx')
+data = df.to_dict("list")
+dat_list = list(data)
+
+y = np.array(data["señal"])
+x = np.array(data["tiempo"])
+
+peaks, _ = find_peaks(y, height=1)
+
+plt.plot(x,y, label="Frecuencia")
+plt.plot(x[peaks],y[peaks],"x", label = "picos")
+plt.xlabel('Tiempo \n(Segundos)')
+plt.ylabel('Señal \n(eV)')
+plt.legend()
+
+
+
+##_______________ Frecuencia cardiaca_____________
+
+counter = 0
+test_list = []
+
+for item in peaks:
+    counter +=1
+    test_list.append(item)
+
+x1 = data["tiempo"]
+ultimo = x[-1]
+
+F = (counter * 60 )/ ultimo
+f = format(F, ".2f")
+
+##_______ DETERMINAR ESTADO DEL PACIENTE_________
+
+if F >= 60 and F <= 100:
+    res = "El paciente se encontraba en un nivel en estado de reposo \n"
+    print(res)
+elif F >= 150 and F <= 200:
+    res = "El paciente se encontraba realizando ejercicio físico \n"
+    print(res) 
+else:
+    res = "El paciente se encontraba en un nivel de actividad regular, no se encontraba en reposo ni realizando actividad física considerable\n"
+    print(res)
+
+#------REQUISITO 4 CREACIÓN DE ARCHIVO .TXT
+
+file_res = open("resultados.txt", "w")
+file_res.write("La frecuencia cardiaca del paciene es de {} latidos por minuto\n".format(f))
+file_res.write(res)
+file_res.write("Edad del paciente: {}\n".format(edad))
+file_res.write("Sexo del paciente: {}\n".format(sexo))
+file_res.close()
+
+
+plt.title("Frecuencia cardiaca: {}".format(f))
+plt.show()
